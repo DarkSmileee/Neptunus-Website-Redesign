@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ontmoet het bestuur — Neptunus WVM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<div id="site-header"></div>
+<section class="hero hero--page"><div class="hero__bg"></div><div class="container">
+  <span class="eyebrow">Onze club</span>
+  <h1>Ontmoet het bestuur</h1>
+  <p class="lead">De gezichten achter Neptunus: vrijwilligers die er elke week staan.</p>
+</div></section>
+
+<main id="main">
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal" id="wie"><span class="eyebrow">Wie doet wat</span><h2>Zoek je iemand? Begin bij de taak.</h2>
+      <p class="lead">Neptunus draait op vrijwilligers. Hieronder zie je wie waarvoor je aanspreekpunt is.</p></div>
+    <figure class="orgchart reveal"><a href="img/wie-doet-wat-2.png"><img src="img/wie-doet-wat-2.png" alt="Schema Neptunus: wie doet wat. Bestuur, medewerkers buiten het bestuur en integriteit, met de namen per taak." loading="lazy"></a><figcaption>Klik op het schema om het te vergroten, of zoek hieronder op taak of naam.</figcaption></figure>
+    <div class="who-search"><label for="q">Waarvoor zoek je iemand?</label><input id="q" type="search" placeholder="bv. materiaal, Ekeren, website, Nekker…" autocomplete="off"></div>
+    <div id="who"></div>
+    <p class="who-empty note" id="none">Niets gevonden. Mail <a href="mailto:duikclubneptunus@gmail.com">duikclubneptunus@gmail.com</a>.</p>
+    <div class="callout" style="margin-top:24px">Weet je niet bij wie je moet zijn? Mail <a href="mailto:duikclubneptunus@gmail.com">duikclubneptunus@gmail.com</a> of gebruik het <a href="contact.html">contactformulier</a>.</div>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="app.js"></script>
+<script>
+// ponytail: team data inline (from wie-doet-wat.pptx); move to JSON/CMS if it grows. Photo = img/<key>.jpg, else initials.
+const G = [
+ ['Bestuur', 'lead-group', [
+  ['Voorzitter', [['Philippe Claes','philippe']]],
+  ['Ondervoorzitter', [['Jan Pacqué','jan']]],
+  ['Duikschool verantwoordelijke', [['Glenn Van Iseghem','glenn']]],
+  ['Materiaal', [['Filip De Groof','filip'],['Pieter Levens-Ceuterick','pieter']]],
+  ['Website, agenda, mailing', [['Philip Van Herterijck','philip']]],
+  ['Evenementen', [['Ronald Struyf','ronald-s']]],
+  ['Nekker verantwoordelijke', [['Luc Van Elslander','luc-e']]],
+  ['Algemeen medewerker', [['Kristof Decoorne',''],['Luc Schelkens','luc-s']]],
+  ['Penningmeester, boekhouding', [['Sandy Beeckmans','sandy']]],
+  ['Secretariaat, kaarten van Ekeren', [['Ronald Beeckmans','ronald-b']]]]],
+ ['Medewerkers buiten het bestuur', '', [
+  ['Materiaal', [['Tars Peeraers','']]],
+  ['Social media', [['Lieven Van Campenhout','']]],
+  ['Algemeen medewerker', [['David Szalai','']]],
+  ['Organisatie Oosterscheldeduiken', [['Marleen Kestens','marleen']]],
+  ['Organisatie steengroeveduiken', [['Harald Beirnaert','harald']]],
+  ['Boetiek', [['Moni Oppers','moni']]]]],
+ ['Integriteit', '', [
+  ['API: aanspreekpunt integriteit', [['Ronald Struyf','ronald-s'],['Kristien Van Horebeek','kristien']]]]],
+];
+const ini = n => n.split(' ').filter(w => /^[A-Z]/.test(w)).map(w => w[0]).slice(0, 2).join('');
+const person = ([n, k]) => `<div class="p"><span class="avatar">${k ? `<img src="img/${k}.jpg" alt="${n}" loading="lazy">` : ini(n)}</span><b>${n}</b></div>`;
+document.getElementById('who').innerHTML = G.map(([t, c, tasks]) => `<div class="who-group ${c}"><h3>${t}</h3><div class="who-grid">${tasks.map(([task, ps]) => `<article class="task reveal" data-s="${(task + ' ' + ps.map(p => p[0]).join(' ')).toLowerCase()}"><h4>${task}</h4>${ps.map(person).join('')}</article>`).join('')}</div></div>`).join('');
+document.getElementById('q').oninput = e => {
+  const q = e.target.value.trim().toLowerCase(); let n = 0;
+  document.querySelectorAll('.task').forEach(t => { const m = !q || t.dataset.s.includes(q); t.hidden = !m; n += m; });
+  document.querySelectorAll('.who-group').forEach(g => g.hidden = !g.querySelector('.task:not([hidden])'));
+  document.getElementById('none').style.display = n ? 'none' : 'block';
+};
+document.querySelectorAll('.reveal:not(.in)').forEach(el => new IntersectionObserver((es, o) => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), o.disconnect())), { threshold: .15 }).observe(el));
+</script>
+</body>
+</html>

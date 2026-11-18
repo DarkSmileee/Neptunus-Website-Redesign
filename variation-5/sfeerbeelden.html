@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sfeerbeelden — Neptunus WVM</title>
+<meta name="description" content="Neptunus WVM: duikclub in Mechelen. Al 60 jaar een begrip. Gratis initiatie in het zwembad.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800;900&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<div id="site-header"></div>
+<section class="hero hero--page"><video class="hero__media" autoplay muted loop playsinline preload="metadata" poster="img/poster-club.webp"><source src="img/hero-club.mp4" type="video/mp4"></video><div class="container">
+  <span class="eyebrow">Sfeerbeelden</span>
+  <h1>Neptunus in beeld</h1>
+  <p class="lead">Duiken, plezier en gezelligheid: een blik op het clubleven.</p>
+</div><div class="hero__wave"></div></section>
+
+<main id="main"><section class="section"><div class="container">
+  <div class="gallery">
+    <a href="img/sfeer5.jpg" class="reveal"><img src="img/sfeer5.jpg" alt="Twee clubleden na een duik" loading="lazy"></a>
+    <a href="img/sfeer1.jpg" class="reveal"><img src="img/sfeer1.jpg" alt="Twee duikers in de Oosterschelde" loading="lazy"></a>
+    <a href="img/nekker.webp" class="reveal"><img src="img/nekker.webp" alt="Luchtfoto Domein De Nekker" loading="lazy"></a>
+    <figure class="reveal"><video src="img/sfeer1.mp4" controls preload="metadata" playsinline></video><figcaption>Video</figcaption></figure>
+    <a href="img/sfeer2.webp" class="reveal"><img src="img/sfeer2.webp" alt="Clubbarbecue aan de Oosterschelde" loading="lazy"></a>
+    <a href="img/zeelandbrug.jpg" class="reveal"><img src="img/zeelandbrug.jpg" alt="Zeelandbrug" loading="lazy"></a>
+    <a href="img/sfeer4.webp" class="reveal"><img src="img/sfeer4.webp" alt="Duim omhoog na de duik" loading="lazy"></a>
+    <a href="img/la-gombe.webp" class="reveal"><img src="img/la-gombe.webp" alt="Steengroeve La Gombe" loading="lazy"></a>
+    <figure class="reveal"><video src="img/sfeer2.mp4" controls preload="metadata" playsinline></video><figcaption>Video</figcaption></figure>
+    <a href="img/sfeer3.webp" class="reveal"><img src="img/sfeer3.webp" alt="Twee duikers bij de Oosterschelde" loading="lazy"></a>
+    <a href="img/ekeren.webp" class="reveal"><img src="img/ekeren.webp" alt="Put van Ekeren" loading="lazy"></a>
+    <a href="img/estartit.webp" class="reveal"><img src="img/estartit.webp" alt="L’Estartit" loading="lazy"></a>
+    <a href="img/materiaal.jpg" class="reveal"><img src="img/materiaal.jpg" alt="Clubmateriaal" loading="lazy"></a>
+    <figure class="reveal"><video src="img/sfeer3.mp4" controls preload="metadata" playsinline></video><figcaption>Video</figcaption></figure>
+    <a href="img/ekeren-kaart.webp" class="reveal"><img src="img/ekeren-kaart.webp" alt="Kaart Put van Ekeren" loading="lazy"></a>
+    <a href="img/nekker-kaart-1.jpg" class="reveal"><img src="img/nekker-kaart-1.jpg" alt="Plattegrond De Nekker 1" loading="lazy"></a>
+    <a href="img/nekker-kaart-2.jpg" class="reveal"><img src="img/nekker-kaart-2.jpg" alt="Plattegrond De Nekker 2" loading="lazy"></a>
+    
+  </div>
+  <p class="note center" style="margin-top:24px">Meer foto’s op <a href="https://www.facebook.com/NEPTUNUSWVM">Facebook</a> en <a href="https://www.instagram.com/neptunuswvm">Instagram</a>.</p>
+</div></section></main>
+<dialog class="lb" id="lb"><button aria-label="Sluiten">×</button><img alt=""></dialog>
+<div id="site-footer"></div>
+<script src="app.js"></script>
+<script>
+// Lightbox: native <dialog>, click anywhere to close.
+const lb = document.getElementById('lb'), im = lb.querySelector('img');
+document.querySelectorAll('.gallery a').forEach(a => a.onclick = e => { e.preventDefault(); im.src = a.href; im.alt = a.firstElementChild.alt; lb.showModal(); });
+lb.onclick = () => lb.close();
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inschrijven — Neptunus WVM</title>
+<meta name="description" content="Neptunus WVM: duikclub in Mechelen. Al 60 jaar een begrip. Gratis initiatie in het zwembad.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800;900&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<div id="site-header"></div>
+<section class="hero hero--page"><div class="hero__rays"></div><div class="container">
+  <span class="eyebrow">Inschrijven</span>
+  <h1>Lidmaatschap 2027</h1>
+  <p class="lead">Vul het formulier in. Daarna ontvang je de betaalgegevens. Tarieven vind je op de <a href="lidgeld.html" style="color:#fff;text-decoration:underline">pagina lidgeld</a>.</p>
+</div><div class="hero__wave"></div></section>
+
+
+<main id="main"><section class="section"><div class="container" style="max-width:860px">
+  <form class="panel form" data-next="bedanking.html">
+    <div class="full"><label for="naam">Naam en voornaam <span class="req">*</span></label><input id="naam" required autocomplete="name"></div>
+    <div><label for="mail">E-mailadres <span class="req">*</span></label><input id="mail" type="email" required autocomplete="email"></div>
+    <div><label for="tel">Telefoon</label><input id="tel" type="tel" autocomplete="tel"></div>
+    <div class="full"><label for="adres">Adres</label><input id="adres" autocomplete="street-address"></div>
+    <div><label for="gb">Geboortedatum <span class="req">*</span></label><input id="gb" type="date" required></div>
+    <div><label for="brev">Huidige brevetten (Nelos en andere)</label><input id="brev"></div>
+    <fieldset><legend>Ik was lid vorig jaar <span class="req">*</span></legend>
+      <label class="opt"><input type="radio" name="vorig" required> Ja</label><label class="opt"><input type="radio" name="vorig"> Neen</label></fieldset>
+    <div><label for="soort">Soort lidmaatschap</label><select id="soort"><option>Duikend lid</option><option>Duikend lid + redder</option><option>Zwemmend lid (enkel vrijdag)</option><option>Tweede lidmaatschap</option><option>Steunend lid</option><option>Beginnend duikend lid</option></select></div>
+    <div class="full"><label for="club2">Indien tweede lidmaatschap: bij welke Nelos-club ben je hoofdlid?</label><input id="club2"></div>
+    <div><label for="ice">Contact bij noodgevallen (naam)</label><input id="ice"></div>
+    <div><label for="icet">Telefoon noodcontact</label><input id="icet" type="tel"></div>
+    <div class="full"><label for="opm">Extra vragen of opmerkingen</label><textarea id="opm"></textarea></div>
+    <fieldset class="full"><legend>Toestemming foto’s <span class="req">*</span></legend>
+      <label class="opt"><input type="radio" name="foto" required> Ja, mijn foto mag gebruikt worden</label>
+      <label class="opt"><input type="radio" name="foto"> Mijn foto mag niet gebruikt worden</label></fieldset>
+    <div class="full callout"><p class="note" style="margin:0">Je gaat akkoord met de administratieve regels van de club en bevestigt medisch geschikt te zijn om te duiken. Je gegevens worden gebruikt door het bestuur; de ledenlijst kan gepubliceerd worden.</p></div>
+    <label class="opt full"><input type="checkbox" required> Deze data is correct <span class="req">*</span></label>
+    <div class="full"><button class="btn" type="submit">Verzenden <span class="arrow">→</span></button></div>
+  </form>
+</div></section></main>
+<div id="site-footer"></div>
+<script src="app.js"></script>
+</body>
+</html>
