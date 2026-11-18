@@ -1,11 +1,75 @@
 <!doctype html>
+<html lang="nl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Neptunus Website Redesign</title>
-<h1>Neptunus – website variations</h1>
-<ul>
-  <li><a href="variation-1/">Variation 1</a></li>
-  <li><a href="variation-3/">Variation 3</a></li>
-  <li><a href="variation-4/">Variation 4</a></li>
-  <li><a href="variation-5/">Variation 5</a></li>
-</ul>
+<title>Neptunus – Website voorstellen</title>
+<style>
+  :root{--bg:#f3f7fa;--card:#fff;--text:#12304a;--muted:#5b7389;--accent:#0a6fb8;--border:#d9e4ec}
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0b1722;--card:#12263a;--text:#e6f0f7;--muted:#9fb5c7;--accent:#4db1f0;--border:#22405c}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+  main{max-width:900px;margin:0 auto;padding:48px 16px}
+  h1{margin:0 0 8px;font-size:2rem}
+  .lead{color:var(--muted);margin:0 0 28px;font-size:1.05rem}
+  .note{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;margin-bottom:32px}
+  .note ul{margin:8px 0 0;padding-left:20px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:16px}
+  @media (max-width:480px){.grid{grid-template-columns:1fr}}
+  a.card{display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+  a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.15);border-color:var(--accent)}
+  .num{display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:999px;padding:2px 12px;font-size:.85rem}
+  .card h2{margin:10px 0 6px;font-size:1.3rem}
+  .card p{margin:0 0 14px;color:var(--muted)}
+  .go{color:var(--accent);font-weight:600}
+  footer{margin-top:36px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Neptunus – nieuwe website</h1>
+  <p class="lead">Vier ideeën voor het nieuwe ontwerp van onze duikclub.</p>
+
+  <div class="note">
+    <strong>Hoe werkt het?</strong>
+    <ul>
+      <li>Klik op een van de kaarten hieronder om dat voorstel te openen (in een nieuw tabblad).</li>
+      <li>Bekijk gerust alle pagina's: menu, agenda, inschrijven, enz.</li>
+      <li>Dit zijn voorbeelden. Formulieren (zoals contact en inschrijven) werken nog niet.</li>
+      <li>Laat ons weten welk idee je het best vindt, of welke onderdelen je wil combineren.</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="variation-1/" target="_blank" rel="noopener">
+      <span class="num">Idee 1</span>
+      <h2>Variatie 1</h2>
+      <p>Open het eerste voorstel voor de website.</p>
+      <span class="go">Open website ↗</span>
+    </a>
+    <a class="card" href="variation-3/" target="_blank" rel="noopener">
+      <span class="num">Idee 2</span>
+      <h2>Variatie 3</h2>
+      <p>Open het tweede voorstel voor de website.</p>
+      <span class="go">Open website ↗</span>
+    </a>
+    <a class="card" href="variation-4/" target="_blank" rel="noopener">
+      <span class="num">Idee 3</span>
+      <h2>Variatie 4</h2>
+      <p>Open het derde voorstel voor de website.</p>
+      <span class="go">Open website ↗</span>
+    </a>
+    <a class="card" href="variation-5/" target="_blank" rel="noopener">
+      <span class="num">Idee 4</span>
+      <h2>Variatie 5</h2>
+      <p>Open het vierde voorstel voor de website.</p>
+      <span class="go">Open website ↗</span>
+    </a>
+  </div>
+
+  <footer>Tijdelijke voorbeeldpagina, enkel bedoeld om samen een keuze te maken.</footer>
+</main>
+</body>
+</html>
