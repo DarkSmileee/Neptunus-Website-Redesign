@@ -39,7 +39,9 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 
 const hdr = document.getElementById('hdr'), nav = document.getElementById('nav'), burger = hdr.querySelector('.burger');
 burger.onclick = () => burger.setAttribute('aria-expanded', nav.classList.toggle('open'));
-nav.addEventListener('click', e => e.target.closest('a') && nav.classList.remove('open'));
+const closeNav = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); };
+nav.addEventListener('click', e => e.target.closest('a') && closeNav());
+addEventListener('keydown', e => e.key === 'Escape' && nav.classList.contains('open') && (closeNav(), burger.focus()));
 
 const still = matchMedia('(prefers-reduced-motion:reduce)').matches;
 const lite = still || (navigator.connection && navigator.connection.saveData);

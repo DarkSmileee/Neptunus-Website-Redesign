@@ -250,6 +250,7 @@ fieldset{border:0;padding:0;margin:0}
 .logo img{height:84px;width:auto;filter:brightness(0) invert(1)}
 .site-header.scrolled .logo img{height:64px}
 .logo img{transition:height var(--t-base) var(--ease)}
+@media (max-width:767px){.site-header .logo img,.site-header.scrolled .logo img{height:56px}} /* keep the phone header 84px tall so the slide-out menu lines up */
 .ph img{transition:transform var(--t-slow) var(--ease)}
 .ph:has(img)::after{display:none}
 .ph.top img{object-position:center 20%}

@@ -55,11 +55,12 @@ const G = [
  ['Integriteit', '', [
   ['API: aanspreekpunt integriteit', [['Ronald Struyf','ronald-s'],['Kristien Van Horebeek','kristien']]]]],
 ];
+const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); // 'pacque' finds 'Pacqué'
 const ini = n => n.split(' ').filter(w => /^[A-Z]/.test(w)).map(w => w[0]).slice(0, 2).join('');
 const person = ([n, k]) => `<div class="p"><span class="avatar">${k ? `<img src="img/${k}.jpg" alt="${n}" loading="lazy">` : ini(n)}</span><b>${n}</b></div>`;
-document.getElementById('who').innerHTML = G.map(([t, c, tasks]) => `<div class="who-group ${c}"><h3>${t}</h3><div class="who-grid">${tasks.map(([task, ps]) => `<article class="task reveal" data-s="${(task + ' ' + ps.map(p => p[0]).join(' ')).toLowerCase()}"><h4>${task}</h4>${ps.map(person).join('')}</article>`).join('')}</div></div>`).join('');
+document.getElementById('who').innerHTML = G.map(([t, c, tasks]) => `<div class="who-group ${c}"><h3>${t}</h3><div class="who-grid">${tasks.map(([task, ps]) => `<article class="task reveal" data-s="${norm(task + ' ' + ps.map(p => p[0]).join(' '))}"><h4>${task}</h4>${ps.map(person).join('')}</article>`).join('')}</div></div>`).join('');
 document.getElementById('q').oninput = e => {
-  const q = e.target.value.trim().toLowerCase(); let n = 0;
+  const q = norm(e.target.value.trim()); let n = 0;
   document.querySelectorAll('.task').forEach(t => { const m = !q || t.dataset.s.includes(q); t.hidden = !m; n += m; });
   document.querySelectorAll('.who-group').forEach(g => g.hidden = !g.querySelector('.task:not([hidden])'));
   document.getElementById('none').style.display = n ? 'none' : 'block';

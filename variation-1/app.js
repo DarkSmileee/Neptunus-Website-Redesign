@@ -45,7 +45,9 @@ const hdr = document.getElementById('hdr'), nav = document.getElementById('nav')
 const onScroll = () => hdr.classList.toggle('scrolled', scrollY > 40);
 onScroll(); addEventListener('scroll', onScroll, { passive: true });
 burger.onclick = () => burger.setAttribute('aria-expanded', nav.classList.toggle('open'));
-nav.addEventListener('click', e => e.target.closest('a') && nav.classList.remove('open'));
+const closeNav = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); };
+nav.addEventListener('click', e => e.target.closest('a') && closeNav());
+addEventListener('keydown', e => e.key === 'Escape' && nav.classList.contains('open') && (closeNav(), burger.focus()));
 
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
